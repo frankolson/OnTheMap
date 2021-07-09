@@ -56,15 +56,31 @@
 		BEC003B42698D1D30050C836 /* On the Map */ = {
 			isa = PBXGroup;
 			children = (
+				BEC003C32698D1D40050C836 /* Info.plist */,
 				BEC003B52698D1D30050C836 /* AppDelegate.swift */,
 				BEC003B72698D1D30050C836 /* SceneDelegate.swift */,
+				BEC003C92698D1FB0050C836 /* Controllers */,
+				BEC003CA2698D2250050C836 /* Assets */,
+			);
+			path = "On the Map";
+			sourceTree = "<group>";
+		};
+		BEC003C92698D1FB0050C836 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				BEC003B92698D1D30050C836 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BEC003CA2698D2250050C836 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
 				BEC003BB2698D1D30050C836 /* Main.storyboard */,
 				BEC003BE2698D1D40050C836 /* Assets.xcassets */,
 				BEC003C02698D1D40050C836 /* LaunchScreen.storyboard */,
-				BEC003C32698D1D40050C836 /* Info.plist */,
 			);
-			path = "On the Map";
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

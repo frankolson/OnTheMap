@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE4F85F8269A089E00997B73 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F85F7269A089E00997B73 /* CustomTextField.swift */; };
+		BE4F85FA269A097800997B73 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F85F9269A097800997B73 /* CustomButton.swift */; };
+		BE4F85FC269A09D000997B73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F85FB269A09D000997B73 /* Colors.swift */; };
+		BE4F85FE269A0A3600997B73 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4F85FD269A0A3600997B73 /* Colors.xcassets */; };
 		BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B52698D1D30050C836 /* AppDelegate.swift */; };
 		BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B72698D1D30050C836 /* SceneDelegate.swift */; };
 		BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B92698D1D30050C836 /* LoginViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE4F85F7269A089E00997B73 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BE4F85F9269A097800997B73 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		BE4F85FB269A09D000997B73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BE4F85FD269A0A3600997B73 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BEC003B22698D1D30050C836 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC003B52698D1D30050C836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC003B72698D1D30050C836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE4F85F6269A085800997B73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE4F85FB269A09D000997B73 /* Colors.swift */,
+				BE4F85F7269A089E00997B73 /* CustomTextField.swift */,
+				BE4F85F9269A097800997B73 /* CustomButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BEC003A92698D1D30050C836 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +78,7 @@
 				BEC003B52698D1D30050C836 /* AppDelegate.swift */,
 				BEC003B72698D1D30050C836 /* SceneDelegate.swift */,
 				BEC003C92698D1FB0050C836 /* Controllers */,
+				BE4F85F6269A085800997B73 /* Views */,
 				BEC003CA2698D2250050C836 /* Assets */,
 			);
 			path = "On the Map";
@@ -79,6 +98,7 @@
 				BEC003BB2698D1D30050C836 /* Main.storyboard */,
 				BEC003BE2698D1D40050C836 /* Assets.xcassets */,
 				BEC003C02698D1D40050C836 /* LaunchScreen.storyboard */,
+				BE4F85FD269A0A3600997B73 /* Colors.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -141,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEC003C22698D1D40050C836 /* LaunchScreen.storyboard in Resources */,
+				BE4F85FE269A0A3600997B73 /* Colors.xcassets in Resources */,
 				BEC003BF2698D1D40050C836 /* Assets.xcassets in Resources */,
 				BEC003BD2698D1D30050C836 /* Main.storyboard in Resources */,
 			);
@@ -153,9 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4F85F8269A089E00997B73 /* CustomTextField.swift in Sources */,
+				BE4F85FC269A09D000997B73 /* Colors.swift in Sources */,
 				BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */,
 				BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */,
 				BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */,
+				BE4F85FA269A097800997B73 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

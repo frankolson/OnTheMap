@@ -81,15 +81,6 @@ class UdacityClient {
         var request = URLRequest(url: Endpoints.logout.url)
         request.httpMethod = "DELETE"
         
-        var xsrfCookie: HTTPCookie? = nil
-        let sharedCookieStorage = HTTPCookieStorage.shared
-        for cookie in sharedCookieStorage.cookies! {
-          if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
-        }
-        if let xsrfCookie = xsrfCookie {
-          request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
-        }
-        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
                 completion(false, error)

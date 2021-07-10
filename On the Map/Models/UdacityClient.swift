@@ -14,20 +14,19 @@ class UdacityClient {
     }
     
     enum Endpoints {
-        static let base = "https://onthemap-api.udacity.com"
+        static let base = "https://onthemap-api.udacity.com/v1"
         
         case signUp
         case createSessionId
         case logout
+        case getStudentLocations
         
         var stringValue: String {
             switch self {
-            case .signUp:
-                return "https://auth.udacity.com/sign-up"
-            case .createSessionId:
-                return Endpoints.base + "/v1/session"
-            case .logout:
-                return Endpoints.base + "/v1/session"
+            case .signUp: return "https://auth.udacity.com/sign-up"
+            case .createSessionId: return Endpoints.base + "/session"
+            case .logout: return Endpoints.base + "/session"
+            case .getStudentLocations: return Endpoints.base + "/StudentLocation"
             }
         }
         
@@ -62,15 +61,8 @@ class UdacityClient {
                     completion(true, nil)
                 }
             } catch {
-                do {
-                    let errorResponse = try decoder.decode(UdacityResponse.self, from: newData)
-                    DispatchQueue.main.async {
-                        completion(false, errorResponse)
-                    }
-                } catch {
-                    DispatchQueue.main.async {
-                        completion(false, error)
-                    }
+                attemptErrorParsing(decoder: decoder, errorData: newData) { error in
+                    completion(false, error)
                 }
             }
         }
@@ -93,5 +85,47 @@ class UdacityClient {
             }
         }
         task.resume()
+    }
+    
+    class func getStudentLocations(completion: @escaping ([StudentInformation], Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.getStudentLocations.url)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(StudentLocationResults.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject.results, nil)
+                }
+            } catch {
+                attemptErrorParsing(decoder: decoder, errorData: data) { error in
+                    completion([], error)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    // MARK: API request helpers
+    
+    class func attemptErrorParsing(decoder: JSONDecoder, errorData: Data, completion: @escaping (Error) -> Void) {
+        do {
+            let errorResponse = try decoder.decode(UdacityResponse.self, from: errorData)
+            DispatchQueue.main.async {
+                completion(errorResponse)
+            }
+        } catch {
+            DispatchQueue.main.async {
+                completion(error)
+            }
+        }
     }
 }

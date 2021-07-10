@@ -10,8 +10,3 @@ import Foundation
 struct SessionRequest: Codable {
     let udacity: LoginDetails
 }
-
-struct LoginDetails: Codable {
-    let username: String
-    let password: String
-}

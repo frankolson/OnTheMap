@@ -53,7 +53,6 @@ class UdacityClient {
             // Remove security bytes
             let range = 5 ..< data.count
             let newData = data.subdata(in: range)
-            print("Data: \(String(decoding: newData, as: UTF8.self))")
             
             let decoder = JSONDecoder()
             do {

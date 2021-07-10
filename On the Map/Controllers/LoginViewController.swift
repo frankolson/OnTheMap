@@ -47,6 +47,7 @@ class LoginViewController: UIViewController {
     func handleSessionResponse(success: Bool, error: Error?) {
         setLoggingIn(false)
         if success {
+            passwordTextField.text = ""
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
             print("Error: \(String(describing: error))")

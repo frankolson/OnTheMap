@@ -13,6 +13,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Lifecycle overrides
     
@@ -56,6 +57,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // MARK: Actions
+
+    @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
+        setRefreshing(true)
+        UdacityClient.getStudentLocations { studentLocations, error in
+            StudentInformationModel.allStudents = studentLocations
+            self.refreshMapAnnotations()
+            self.setRefreshing(false)
+        }
+    }
+    
     // MARK: Map helpers
     
     func refreshMapAnnotations() {
@@ -76,5 +88,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotations(annotations)
+    }
+    
+    func setRefreshing(_ loggingIn: Bool) {
+        if loggingIn {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
 }

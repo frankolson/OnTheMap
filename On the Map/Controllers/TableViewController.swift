@@ -7,10 +7,19 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    // MARK: Outlets
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    // MARK: Lifecycle overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
 
         UdacityClient.getStudentLocations { studentLocations, Error in
             StudentInformationModel.allStudents = studentLocations
@@ -26,15 +35,15 @@ class TableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return StudentInformationModel.allStudents.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationCell", for: indexPath)
         let studentInformation = StudentInformationModel.allStudents[indexPath.row]
         
@@ -44,7 +53,7 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         guard let toOpen = cell?.detailTextLabel?.text, let url = URL(string: toOpen), UIApplication.shared.canOpenURL(url) else {
             showAlert(title: "Invalid URL", message: "This pin has an invalid URL")
@@ -52,6 +61,27 @@ class TableViewController: UITableViewController {
         }
         
         UIApplication.shared.open(url, options: [:])
+    }
+    
+    // MARK: Actions
+
+    @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
+        setRefreshing(true)
+        UdacityClient.getStudentLocations { studentLocations, error in
+            StudentInformationModel.allStudents = studentLocations
+            self.tableView.reloadData()
+            self.setRefreshing(false)
+        }
+    }
+    
+    // MARK: Helpers
+    
+    func setRefreshing(_ loggingIn: Bool) {
+        if loggingIn {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
 
 }

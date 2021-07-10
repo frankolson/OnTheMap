@@ -149,8 +149,8 @@
 			children = (
 				BEC003B92698D1D30050C836 /* LoginViewController.swift */,
 				BE4F860A269A25D700997B73 /* MapViewController.swift */,
-				BE4F8608269A1C7C00997B73 /* UIViewController+Extension.swift */,
 				BE4F861C269A438500997B73 /* TableViewController.swift */,
+				BE4F8608269A1C7C00997B73 /* UIViewController+Extension.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

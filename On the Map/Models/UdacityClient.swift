@@ -26,7 +26,7 @@ class UdacityClient {
             case .signUp: return "https://auth.udacity.com/sign-up"
             case .createSessionId: return Endpoints.base + "/session"
             case .logout: return Endpoints.base + "/session"
-            case .getStudentLocations: return Endpoints.base + "/StudentLocation"
+            case .getStudentLocations: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
             }
         }
         

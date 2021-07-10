@@ -37,9 +37,12 @@
                                 <rect key="frame" x="25" y="328" width="364" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="LOG IN"/>
+                                <connections>
+                                    <action selector="loginTapped:" destination="j4d-gr-1hG" eventType="touchUpInside" id="h9l-9F-23D"/>
+                                </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zj-mD-Mcn">
-                                <rect key="frame" x="25" y="388" width="364" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7zj-mD-Mcn">
+                                <rect key="frame" x="85.5" y="388" width="243" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbl-Aa-ktf">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
@@ -48,19 +51,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiv-eG-Nct" userLabel="Sign Up Button">
-                                        <rect key="frame" x="179" y="0.0" width="185" height="30"/>
+                                        <rect key="frame" x="189" y="0.0" width="54" height="30"/>
                                         <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUpTapped:" destination="j4d-gr-1hG" eventType="touchUpInside" id="dwO-M3-C42"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-3U-DJg">
+                                <rect key="frame" x="197" y="445" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tfW-Zx-TpE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FHg-58-iJA" firstAttribute="top" secondItem="tfW-Zx-TpE" secondAttribute="top" constant="50" id="0ED-VE-wJW"/>
+                            <constraint firstItem="MHn-3U-DJg" firstAttribute="top" secondItem="sbl-Aa-ktf" secondAttribute="bottom" constant="27" id="2xf-qr-ZFd"/>
                             <constraint firstItem="hUW-xe-fMP" firstAttribute="top" secondItem="6yH-w9-Uzn" secondAttribute="bottom" constant="8" symbolic="YES" id="9KG-lh-D7l"/>
                             <constraint firstItem="7zj-mD-Mcn" firstAttribute="centerX" secondItem="tfW-Zx-TpE" secondAttribute="centerX" id="GCP-sO-i6g"/>
-                            <constraint firstItem="7zj-mD-Mcn" firstAttribute="width" secondItem="JFD-Sd-wn7" secondAttribute="width" constant="-50" id="KfK-vC-qtZ"/>
                             <constraint firstItem="hUW-xe-fMP" firstAttribute="centerX" secondItem="tfW-Zx-TpE" secondAttribute="centerX" id="MXP-n7-2e5"/>
                             <constraint firstItem="6yH-w9-Uzn" firstAttribute="width" secondItem="tfW-Zx-TpE" secondAttribute="width" constant="-50" id="eho-an-3pP"/>
                             <constraint firstItem="yTy-rh-2nV" firstAttribute="top" secondItem="hUW-xe-fMP" secondAttribute="bottom" constant="8" symbolic="YES" id="k6a-3F-kB0"/>
@@ -69,10 +78,18 @@
                             <constraint firstItem="yTy-rh-2nV" firstAttribute="centerX" secondItem="tfW-Zx-TpE" secondAttribute="centerX" id="mGJ-9V-Ucp"/>
                             <constraint firstItem="7zj-mD-Mcn" firstAttribute="top" secondItem="yTy-rh-2nV" secondAttribute="bottom" constant="30" id="nOg-en-5o0"/>
                             <constraint firstItem="hUW-xe-fMP" firstAttribute="width" secondItem="tfW-Zx-TpE" secondAttribute="width" constant="-50" id="nvN-Mc-fbE"/>
+                            <constraint firstItem="MHn-3U-DJg" firstAttribute="centerX" secondItem="tfW-Zx-TpE" secondAttribute="centerX" id="syq-eC-huZ"/>
                             <constraint firstItem="6yH-w9-Uzn" firstAttribute="centerX" secondItem="tfW-Zx-TpE" secondAttribute="centerX" id="wBe-p3-mfU"/>
                             <constraint firstItem="yTy-rh-2nV" firstAttribute="width" secondItem="JFD-Sd-wn7" secondAttribute="width" constant="-50" id="xh3-7a-8ba"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="MHn-3U-DJg" id="gGO-OS-DuP"/>
+                        <outlet property="emailTextField" destination="6yH-w9-Uzn" id="JK6-RM-9is"/>
+                        <outlet property="loginButton" destination="yTy-rh-2nV" id="KA0-Ys-yam"/>
+                        <outlet property="passwordTextField" destination="hUW-xe-fMP" id="geW-6J-n79"/>
+                        <outlet property="signUpButton" destination="aiv-eG-Nct" id="wg9-nC-l8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abD-S0-BRi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

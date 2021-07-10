@@ -23,6 +23,7 @@
 		BE4F8615269A28DA00997B73 /* AccountDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8614269A28DA00997B73 /* AccountDetails.swift */; };
 		BE4F8617269A28E700997B73 /* SessionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8616269A28E700997B73 /* SessionDetails.swift */; };
 		BE4F8619269A2BD300997B73 /* StudentLocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8618269A2BD300997B73 /* StudentLocationResults.swift */; };
+		BE4F861D269A438500997B73 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F861C269A438500997B73 /* TableViewController.swift */; };
 		BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B52698D1D30050C836 /* AppDelegate.swift */; };
 		BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B72698D1D30050C836 /* SceneDelegate.swift */; };
 		BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B92698D1D30050C836 /* LoginViewController.swift */; };
@@ -48,6 +49,7 @@
 		BE4F8614269A28DA00997B73 /* AccountDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetails.swift; sourceTree = "<group>"; };
 		BE4F8616269A28E700997B73 /* SessionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetails.swift; sourceTree = "<group>"; };
 		BE4F8618269A2BD300997B73 /* StudentLocationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResults.swift; sourceTree = "<group>"; };
+		BE4F861C269A438500997B73 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BEC003B22698D1D30050C836 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC003B52698D1D30050C836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC003B72698D1D30050C836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				BEC003B92698D1D30050C836 /* LoginViewController.swift */,
 				BE4F860A269A25D700997B73 /* MapViewController.swift */,
 				BE4F8608269A1C7C00997B73 /* UIViewController+Extension.swift */,
+				BE4F861C269A438500997B73 /* TableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				BE4F860B269A25D700997B73 /* MapViewController.swift in Sources */,
 				BE4F8619269A2BD300997B73 /* StudentLocationResults.swift in Sources */,
 				BE4F8605269A142300997B73 /* SessionResponse.swift in Sources */,
+				BE4F861D269A438500997B73 /* TableViewController.swift in Sources */,
 				BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */,
 				BE4F860D269A271000997B73 /* StudentInformationModel.swift in Sources */,
 				BE4F8617269A28E700997B73 /* SessionDetails.swift in Sources */,

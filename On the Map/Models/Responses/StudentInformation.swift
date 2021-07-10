@@ -18,4 +18,8 @@ struct StudentInformation: Codable {
     let objectId: String
     let uniqueKey: String
     let updatedAt: String
+    
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
 }

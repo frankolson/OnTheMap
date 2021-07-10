@@ -147,7 +147,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="VCP-Pw-g9b">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="556-gg-rlJ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="556-gg-rlJ">
+                            <connections>
+                                <action selector="logoutTapped:" destination="DOF-TM-u8c" id="vf9-4t-1ba"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_addpin" id="nWh-GF-gYd">
                                 <connections>
@@ -186,7 +190,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On the Map" id="PHR-TU-jRe">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Jwm-gL-sWa" userLabel="Logout"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Jwm-gL-sWa" userLabel="Logout">
+                            <connections>
+                                <action selector="logoutTapped:" destination="btA-T0-yJs" id="Wcj-xe-BcN"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_addpin" id="x8m-Pk-lWp">
                                 <connections>
@@ -339,7 +347,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5mI-LB-3ZR"/>
+        <segue reference="ATz-TP-cvV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>

@@ -15,6 +15,7 @@
 		BE4F8603269A11F100997B73 /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8602269A11F100997B73 /* SessionRequest.swift */; };
 		BE4F8605269A142300997B73 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8604269A142300997B73 /* SessionResponse.swift */; };
 		BE4F8607269A18F200997B73 /* UdacityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8606269A18F200997B73 /* UdacityResponse.swift */; };
+		BE4F8609269A1C7C00997B73 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8608269A1C7C00997B73 /* UIViewController+Extension.swift */; };
 		BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B52698D1D30050C836 /* AppDelegate.swift */; };
 		BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B72698D1D30050C836 /* SceneDelegate.swift */; };
 		BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B92698D1D30050C836 /* LoginViewController.swift */; };
@@ -32,6 +33,7 @@
 		BE4F8602269A11F100997B73 /* SessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRequest.swift; sourceTree = "<group>"; };
 		BE4F8604269A142300997B73 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		BE4F8606269A18F200997B73 /* UdacityResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityResponse.swift; sourceTree = "<group>"; };
+		BE4F8608269A1C7C00997B73 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		BEC003B22698D1D30050C836 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC003B52698D1D30050C836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC003B72698D1D30050C836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				BEC003B92698D1D30050C836 /* LoginViewController.swift */,
+				BE4F8608269A1C7C00997B73 /* UIViewController+Extension.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE4F85F8269A089E00997B73 /* CustomTextField.swift in Sources */,
+				BE4F8609269A1C7C00997B73 /* UIViewController+Extension.swift in Sources */,
 				BE4F85FC269A09D000997B73 /* Colors.swift in Sources */,
 				BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */,
 				BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */,

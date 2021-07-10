@@ -25,6 +25,7 @@
 		BE4F8619269A2BD300997B73 /* StudentLocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8618269A2BD300997B73 /* StudentLocationResults.swift */; };
 		BE4F861D269A438500997B73 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F861C269A438500997B73 /* TableViewController.swift */; };
 		BE4F861F269A536C00997B73 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F861E269A536C00997B73 /* AddLocationViewController.swift */; };
+		BE4F8621269A5AF200997B73 /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8620269A5AF200997B73 /* FindLocationViewController.swift */; };
 		BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B52698D1D30050C836 /* AppDelegate.swift */; };
 		BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B72698D1D30050C836 /* SceneDelegate.swift */; };
 		BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B92698D1D30050C836 /* LoginViewController.swift */; };
@@ -52,6 +53,7 @@
 		BE4F8618269A2BD300997B73 /* StudentLocationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResults.swift; sourceTree = "<group>"; };
 		BE4F861C269A438500997B73 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BE4F861E269A536C00997B73 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		BE4F8620269A5AF200997B73 /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 		BEC003B22698D1D30050C836 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC003B52698D1D30050C836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC003B72698D1D30050C836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				BE4F861C269A438500997B73 /* TableViewController.swift */,
 				BE4F8608269A1C7C00997B73 /* UIViewController+Extension.swift */,
 				BE4F861E269A536C00997B73 /* AddLocationViewController.swift */,
+				BE4F8620269A5AF200997B73 /* FindLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				BE4F85FC269A09D000997B73 /* Colors.swift in Sources */,
 				BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */,
 				BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */,
+				BE4F8621269A5AF200997B73 /* FindLocationViewController.swift in Sources */,
 				BE4F8607269A18F200997B73 /* UdacityResponse.swift in Sources */,
 				BE4F861F269A536C00997B73 /* AddLocationViewController.swift in Sources */,
 				BE4F8613269A28B200997B73 /* LoginDetails.swift in Sources */,

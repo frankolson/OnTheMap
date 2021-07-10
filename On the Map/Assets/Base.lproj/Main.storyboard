@@ -229,7 +229,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L6u-6x-txG" userLabel="Password Text Field" customClass="CustomTextField" customModule="On_the_Map" customModuleProvider="target">
                                 <rect key="frame" x="25" y="330" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="url"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="url"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-BE-v41" userLabel="Login Button">
                                 <rect key="frame" x="25" y="372" width="364" height="30"/>
@@ -238,9 +238,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginTapped:" destination="j4d-gr-1hG" eventType="touchUpInside" id="ewS-oq-3Fw"/>
+                                    <action selector="findLocation:" destination="bLs-7J-upL" eventType="touchUpInside" id="Poy-Nu-QfJ"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DAw-Br-ch5">
+                                <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="crJ-85-AbJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -249,10 +252,12 @@
                             <constraint firstItem="L6u-6x-txG" firstAttribute="centerX" secondItem="crJ-85-AbJ" secondAttribute="centerX" id="2Bl-tj-4Xc"/>
                             <constraint firstItem="xHt-x3-o8p" firstAttribute="centerX" secondItem="crJ-85-AbJ" secondAttribute="centerX" id="8g4-mo-uQt"/>
                             <constraint firstItem="L6u-6x-txG" firstAttribute="top" secondItem="xHt-x3-o8p" secondAttribute="bottom" constant="8" symbolic="YES" id="Acy-CV-TpK"/>
+                            <constraint firstItem="DAw-Br-ch5" firstAttribute="centerX" secondItem="crJ-85-AbJ" secondAttribute="centerX" id="BzG-QI-2hf"/>
                             <constraint firstItem="xHt-x3-o8p" firstAttribute="width" secondItem="Iuv-Nc-YJ9" secondAttribute="width" constant="-50" id="D9s-c8-N0g"/>
                             <constraint firstItem="ySq-BE-v41" firstAttribute="width" secondItem="Iuv-Nc-YJ9" secondAttribute="width" constant="-50" id="O1R-yn-2QD"/>
                             <constraint firstItem="uCI-CH-Gku" firstAttribute="centerX" secondItem="crJ-85-AbJ" secondAttribute="centerX" id="QnS-qd-fJc"/>
                             <constraint firstItem="L6u-6x-txG" firstAttribute="width" secondItem="Iuv-Nc-YJ9" secondAttribute="width" constant="-50" id="Rg6-nr-9qg"/>
+                            <constraint firstItem="DAw-Br-ch5" firstAttribute="centerY" secondItem="crJ-85-AbJ" secondAttribute="centerY" id="Tp4-Cm-Gdy"/>
                             <constraint firstItem="uCI-CH-Gku" firstAttribute="top" secondItem="crJ-85-AbJ" secondAttribute="top" constant="50" id="bag-qQ-hba"/>
                             <constraint firstItem="ySq-BE-v41" firstAttribute="top" secondItem="L6u-6x-txG" secondAttribute="bottom" constant="8" symbolic="YES" id="eg3-yY-iC3"/>
                             <constraint firstItem="xHt-x3-o8p" firstAttribute="top" secondItem="uCI-CH-Gku" secondAttribute="bottom" constant="50" id="syA-1P-jjx"/>
@@ -266,7 +271,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="dR9-Mp-60W" kind="show" identifier="previewLocation" id="Ir7-Sd-aeC"/>
+                        <outlet property="activityIndicator" destination="DAw-Br-ch5" id="XYv-Gp-NrX"/>
+                        <outlet property="locationTextField" destination="xHt-x3-o8p" id="v0Q-iT-INm"/>
+                        <outlet property="urlTextField" destination="L6u-6x-txG" id="ZyG-F0-AmZ"/>
+                        <segue destination="dR9-Mp-60W" kind="show" identifier="findLocation" id="Ir7-Sd-aeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8OD-cc-SY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -276,7 +284,7 @@
         <!--Add Location-->
         <scene sceneID="7x8-b4-shY">
             <objects>
-                <viewController id="dR9-Mp-60W" sceneMemberID="viewController">
+                <viewController id="dR9-Mp-60W" customClass="FindLocationViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QdP-OE-n51">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,13 +292,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5F4-XT-pgM">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KQ-Ns-mT0" userLabel="Finish Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KQ-Ns-mT0" userLabel="Finish Button" customClass="CustomButton" customModule="On_the_Map" customModuleProvider="target">
                                 <rect key="frame" x="25" y="792" width="364" height="30"/>
                                 <color key="backgroundColor" name="Primary"/>
                                 <state key="normal" title="Finish">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitLocation:" destination="dR9-Mp-60W" eventType="touchUpInside" id="mnf-jd-vet"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="7cN-h3-N7W">
+                                <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XtG-42-iIq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -299,12 +313,18 @@
                             <constraint firstItem="5KQ-Ns-mT0" firstAttribute="centerX" secondItem="XtG-42-iIq" secondAttribute="centerX" id="A0e-MN-fus"/>
                             <constraint firstItem="5F4-XT-pgM" firstAttribute="height" secondItem="XtG-42-iIq" secondAttribute="height" id="Fr6-tZ-tfS"/>
                             <constraint firstItem="5F4-XT-pgM" firstAttribute="centerY" secondItem="XtG-42-iIq" secondAttribute="centerY" id="N9Y-ZS-Wkr"/>
+                            <constraint firstItem="7cN-h3-N7W" firstAttribute="centerY" secondItem="XtG-42-iIq" secondAttribute="centerY" id="PcO-nN-a1G"/>
                             <constraint firstItem="XtG-42-iIq" firstAttribute="bottom" secondItem="5KQ-Ns-mT0" secondAttribute="bottom" constant="40" id="S7i-mm-DoP"/>
                             <constraint firstItem="5F4-XT-pgM" firstAttribute="centerX" secondItem="XtG-42-iIq" secondAttribute="centerX" id="XMq-UA-yXW"/>
+                            <constraint firstItem="7cN-h3-N7W" firstAttribute="centerX" secondItem="XtG-42-iIq" secondAttribute="centerX" id="uGO-se-her"/>
                             <constraint firstItem="5F4-XT-pgM" firstAttribute="width" secondItem="XtG-42-iIq" secondAttribute="width" id="wEm-KO-MP5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="vdw-fq-HXs"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="7cN-h3-N7W" id="chg-6n-D0r"/>
+                        <outlet property="mapView" destination="5F4-XT-pgM" id="fty-oV-W0W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4s-r2-gGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -209,7 +209,7 @@
         <!--Add Location-->
         <scene sceneID="PeJ-U3-VFi">
             <objects>
-                <viewController id="bLs-7J-upL" sceneMemberID="viewController">
+                <viewController id="bLs-7J-upL" customClass="AddLocationViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iuv-Nc-YJ9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,7 +259,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="PNR-Gg-fjy">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="RhQ-TS-xwE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="RhQ-TS-xwE">
+                            <connections>
+                                <action selector="cancel:" destination="bLs-7J-upL" id="Zn0-ld-QPy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="dR9-Mp-60W" kind="show" identifier="previewLocation" id="Ir7-Sd-aeC"/>

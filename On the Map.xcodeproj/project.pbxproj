@@ -11,6 +11,7 @@
 		BE4F85FA269A097800997B73 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F85F9269A097800997B73 /* CustomButton.swift */; };
 		BE4F85FC269A09D000997B73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F85FB269A09D000997B73 /* Colors.swift */; };
 		BE4F85FE269A0A3600997B73 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4F85FD269A0A3600997B73 /* Colors.xcassets */; };
+		BE4F8601269A0E0A00997B73 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F8600269A0E0A00997B73 /* UdacityClient.swift */; };
 		BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B52698D1D30050C836 /* AppDelegate.swift */; };
 		BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B72698D1D30050C836 /* SceneDelegate.swift */; };
 		BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC003B92698D1D30050C836 /* LoginViewController.swift */; };
@@ -24,6 +25,7 @@
 		BE4F85F9269A097800997B73 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BE4F85FB269A09D000997B73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BE4F85FD269A0A3600997B73 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BE4F8600269A0E0A00997B73 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		BEC003B22698D1D30050C836 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC003B52698D1D30050C836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC003B72698D1D30050C836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BE4F85FF269A0DED00997B73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE4F8600269A0E0A00997B73 /* UdacityClient.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BEC003A92698D1D30050C836 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 				BEC003C32698D1D40050C836 /* Info.plist */,
 				BEC003B52698D1D30050C836 /* AppDelegate.swift */,
 				BEC003B72698D1D30050C836 /* SceneDelegate.swift */,
+				BE4F85FF269A0DED00997B73 /* Models */,
 				BEC003C92698D1FB0050C836 /* Controllers */,
 				BE4F85F6269A085800997B73 /* Views */,
 				BEC003CA2698D2250050C836 /* Assets */,
@@ -179,6 +190,7 @@
 				BEC003BA2698D1D30050C836 /* LoginViewController.swift in Sources */,
 				BEC003B62698D1D30050C836 /* AppDelegate.swift in Sources */,
 				BEC003B82698D1D30050C836 /* SceneDelegate.swift in Sources */,
+				BE4F8601269A0E0A00997B73 /* UdacityClient.swift in Sources */,
 				BE4F85FA269A097800997B73 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

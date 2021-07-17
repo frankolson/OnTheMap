@@ -69,11 +69,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: Helpers
     
     func setRefreshing(_ loggingIn: Bool) {
-        if loggingIn {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
+        loggingIn ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
     }
     
     func loadLocations() {

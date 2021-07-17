@@ -83,11 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func setRefreshing(_ loggingIn: Bool) {
-        if loggingIn {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
+        loggingIn ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
     }
     
     func loadLocations() {

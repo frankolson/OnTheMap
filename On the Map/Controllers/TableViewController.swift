@@ -20,15 +20,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
-        UdacityClient.getStudentLocations { studentLocations, error in
-            if error == nil {
-                StudentInformationModel.allStudents = studentLocations
-                self.tableView.reloadData()
-            } else {
-                self.showAlert(title: "Locations Retrieval Failed", message: error?.localizedDescription ?? "")
-            }
-        }
+        loadLocations()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,11 +63,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
         setRefreshing(true)
-        UdacityClient.getStudentLocations { studentLocations, error in
-            StudentInformationModel.allStudents = studentLocations
-            self.tableView.reloadData()
-            self.setRefreshing(false)
-        }
+        loadLocations()
     }
     
     // MARK: Helpers
@@ -85,6 +73,18 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             activityIndicator.startAnimating()
         } else {
             activityIndicator.stopAnimating()
+        }
+    }
+    
+    func loadLocations() {
+        UdacityClient.getStudentLocations { studentLocations, error in
+            if error == nil {
+                StudentInformationModel.allStudents = studentLocations
+                self.tableView.reloadData()
+                self.setRefreshing(false)
+            } else {
+                self.showAlert(title: "Locations Retrieval Failed", message: error?.localizedDescription ?? "")
+            }
         }
     }
 

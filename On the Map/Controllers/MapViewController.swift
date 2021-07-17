@@ -20,15 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        
-        UdacityClient.getStudentLocations { studentLocations, error in
-            if error == nil {
-                StudentInformationModel.allStudents = studentLocations
-                self.refreshMapAnnotations()
-            } else {
-                self.showAlert(title: "Locations Retrieval Failed", message: error?.localizedDescription ?? "")
-            }
-        }
+        loadLocations()
     }
     
     // MARK: MKMapViewDelegate
@@ -65,11 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
         setRefreshing(true)
-        UdacityClient.getStudentLocations { studentLocations, error in
-            StudentInformationModel.allStudents = studentLocations
-            self.refreshMapAnnotations()
-            self.setRefreshing(false)
-        }
+        loadLocations()
     }
     
     // MARK: Map helpers
@@ -99,6 +87,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             activityIndicator.startAnimating()
         } else {
             activityIndicator.stopAnimating()
+        }
+    }
+    
+    func loadLocations() {
+        UdacityClient.getStudentLocations { studentLocations, error in
+            if error == nil {
+                StudentInformationModel.allStudents = studentLocations
+                self.refreshMapAnnotations()
+                self.setRefreshing(false)
+            } else {
+                self.showAlert(title: "Locations Retrieval Failed", message: error?.localizedDescription ?? "")
+            }
         }
     }
 }

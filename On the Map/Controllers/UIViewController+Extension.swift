@@ -21,7 +21,7 @@ extension UIViewController {
         if success {
             self.dismiss(animated: true, completion: nil)
         } else {
-            print("error: \(String(describing: error))")
+            print("Error: \(String(describing: error))")
         }
     }
     

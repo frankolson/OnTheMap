@@ -11,6 +11,10 @@ class UdacityClient {
     
     struct Auth {
         static var sessionId = ""
+        static var accountKey = ""
+        static var firstName = ""
+        static var lastName = ""
+        static var objectId = ""
     }
     
     enum Endpoints {
@@ -20,6 +24,7 @@ class UdacityClient {
         case createSessionId
         case logout
         case getStudentLocations
+        case getStudentProfile
         
         var stringValue: String {
             switch self {
@@ -27,6 +32,7 @@ class UdacityClient {
             case .createSessionId: return Endpoints.base + "/session"
             case .logout: return Endpoints.base + "/session"
             case .getStudentLocations: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
+            case .getStudentProfile: return Endpoints.base + "/users/\(Auth.accountKey)"
             }
         }
         
@@ -58,7 +64,18 @@ class UdacityClient {
                 let responseObject = try decoder.decode(SessionResponse.self, from: newData)
                 DispatchQueue.main.async {
                     Auth.sessionId = responseObject.session.id
-                    completion(true, nil)
+                    Auth.accountKey = responseObject.account.key
+                    
+                    self.getStudentProfile { success, error in
+                        if success {
+                            completion(true, nil)
+                        } else {
+                            attemptErrorParsing(decoder: decoder, errorData: newData) { error in
+                                completion(false, error)
+                            }
+                        }
+                    }
+                    
                 }
             } catch {
                 attemptErrorParsing(decoder: decoder, errorData: newData) { error in
@@ -88,33 +105,59 @@ class UdacityClient {
     }
     
     class func getStudentLocations(completion: @escaping ([StudentInformation], Error?) -> Void) {
-        var request = URLRequest(url: Endpoints.getStudentLocations.url)
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
+        taskForGETRequest(url: Endpoints.getStudentLocations.url, responseType: StudentLocationResults.self, securedReponse: false) { response, error in
+            if let response = response {
+                completion(response.results, nil)
+            } else {
+                completion([], error)
+            }
+        }
+    }
+    
+    class func getStudentProfile(completion: @escaping (Bool, Error?) -> Void) {
+        taskForGETRequest(url: Endpoints.getStudentProfile.url, responseType: StudentProfileResponse.self, securedReponse: true) { response, error in
+            if let response = response {
+                Auth.firstName = response.firstName
+                Auth.lastName = response.lastName
+
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
+    }
+    
+    // MARK: API request helpers
+    
+    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, securedReponse: Bool, completion: @escaping (ResponseType?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard var data = data else {
                 DispatchQueue.main.async {
-                    completion([], error)
+                    completion(nil, error)
                 }
                 return
             }
             
+            if securedReponse {
+                // Remove security bytes
+                let range = 5 ..< data.count
+                data = data.subdata(in: range)
+            }
+            
             let decoder = JSONDecoder()
             do {
-                let responseObject = try decoder.decode(StudentLocationResults.self, from: data)
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
-                    completion(responseObject.results, nil)
+                    completion(responseObject, nil)
                 }
             } catch {
                 attemptErrorParsing(decoder: decoder, errorData: data) { error in
-                    completion([], error)
+                    completion(nil, error)
                 }
             }
         }
         task.resume()
     }
-    
-    // MARK: API request helpers
     
     class func attemptErrorParsing(decoder: JSONDecoder, errorData: Data, completion: @escaping (Error) -> Void) {
         do {

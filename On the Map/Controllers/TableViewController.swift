@@ -21,9 +21,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
 
-        UdacityClient.getStudentLocations { studentLocations, Error in
-            StudentInformationModel.allStudents = studentLocations
-            self.tableView.reloadData()
+        UdacityClient.getStudentLocations { studentLocations, error in
+            if error == nil {
+                StudentInformationModel.allStudents = studentLocations
+                self.tableView.reloadData()
+            } else {
+                self.showAlert(title: "Locations Retrieval Failed", message: error?.localizedDescription ?? "")
+            }
         }
     }
     

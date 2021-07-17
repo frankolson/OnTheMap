@@ -21,9 +21,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
         
-        UdacityClient.getStudentLocations { studentLocations, Error in
-            StudentInformationModel.allStudents = studentLocations
-            self.refreshMapAnnotations()
+        UdacityClient.getStudentLocations { studentLocations, error in
+            if error == nil {
+                StudentInformationModel.allStudents = studentLocations
+                self.refreshMapAnnotations()
+            } else {
+                self.showAlert(title: "Locations Retrieval Failed", message: error?.localizedDescription ?? "")
+            }
         }
     }
     

@@ -50,7 +50,6 @@ class LoginViewController: UIViewController {
             passwordTextField.text = ""
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
-            print("Error: \(String(describing: error))")
             showAlert(title: "Login Failed", message: error?.localizedDescription ?? "")
         }
     }

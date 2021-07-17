@@ -53,6 +53,13 @@ class FindLocationViewController: UIViewController {
     
     @IBAction func submitLocation(_ sender: Any) {
         setSubmitting(true)
+        UdacityClient.postStudentLocation(
+            mapString: locationString,
+            mediaUrl: urlString,
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude,
+            completion: handleSubmissionResponse(success:error:)
+        )
     }
     
 
@@ -71,6 +78,15 @@ class FindLocationViewController: UIViewController {
             activityIndicator.startAnimating()
         } else {
             activityIndicator.stopAnimating()
+        }
+    }
+    
+    func handleSubmissionResponse(success: Bool, error: Error?) {
+        setSubmitting(false)
+        if success {
+            dismiss(animated: true)
+        } else {
+            showAlert(title: "Location Submission Failed", message: error?.localizedDescription ?? "")
         }
     }
 

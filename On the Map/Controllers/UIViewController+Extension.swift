@@ -21,13 +21,15 @@ extension UIViewController {
         if success {
             self.dismiss(animated: true, completion: nil)
         } else {
-            print("Error: \(String(describing: error))")
+            showAlert(title: "Logout Error", message: error?.localizedDescription ?? "")
         }
     }
     
     // MARK: Alerts
     
     func showAlert(title: String, message: String) {
+        print("Error: \(message)")
+        
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true)

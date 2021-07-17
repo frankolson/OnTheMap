@@ -230,7 +230,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="url"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-BE-v41" userLabel="Login Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-BE-v41" userLabel="Login Button" customClass="CustomButton" customModule="On_the_Map" customModuleProvider="target">
                                 <rect key="frame" x="25" y="372" width="364" height="30"/>
                                 <color key="backgroundColor" name="Primary"/>
                                 <state key="normal" title="Find Location">
